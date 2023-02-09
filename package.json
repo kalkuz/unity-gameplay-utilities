@@ -1,0 +1,24 @@
+{
+  "name": "com.kalkuz.gameplay",
+  "version": "0.0.1",
+  "displayName": "Kalkuz Gameplay Utility",
+  "description": "Utilities for making gameplay feel better.",
+  "category": "Tools",
+  "unity": "2021.3",
+  "unityRelease": "9f1",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "dependencies": {},
+  "keywords": [
+    "scripts",
+    "tools",
+    "attribute",
+    "attributes"
+  ],
+  "author": {
+    "name": "Oğuzhan Kalkuz",
+    "email": "oguzhan@kalkuz.me",
+    "url": ""
+  }
+}
