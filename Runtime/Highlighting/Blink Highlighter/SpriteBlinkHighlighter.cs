@@ -12,6 +12,22 @@ namespace KalkuzSystems.Gameplay
       var elapsed = 0f;
       var originalColors = new Color[spriteRenderers.Length];
 
+      onStopCoroutine = () =>
+      {
+        for (var i = 0; i < spriteRenderers.Length; i++)
+        {
+          var sr = spriteRenderers[i];
+          if (useEmissionColor)
+          {
+            sr.material.SetColor(emissionColorName, originalColors[i]);
+          }
+          else
+          {
+            sr.color = originalColors[i];
+          }
+        }
+      };
+
       for (var i = 0; i < spriteRenderers.Length; i++)
       {
         var sr = spriteRenderers[i];
@@ -48,18 +64,9 @@ namespace KalkuzSystems.Gameplay
         yield return null;
       }
 
-      for (var i = 0; i < spriteRenderers.Length; i++)
-      {
-        if (useEmissionColor)
-        {
-          spriteRenderers[i].material.SetColor(emissionColorName, originalColors[i]);
-        }
-        else
-        {
-          spriteRenderers[i].color = originalColors[i];
-        }
-      }
-
+      
+      onStopCoroutine?.Invoke();
+      onStopCoroutine = null;
       highlightCoroutine = null;
 
       if (isLooping)
