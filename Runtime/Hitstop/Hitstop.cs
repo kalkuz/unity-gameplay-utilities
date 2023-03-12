@@ -5,15 +5,13 @@ namespace KalkuzSystems.Gameplay
 {
   public sealed class Hitstop : MonoBehaviour
   {
-    private static Hitstop instance;
-    public static Hitstop Instance => instance;
-
     private Coroutine doCoroutine;
     private float timePreviously;
+    public static Hitstop Instance { get; private set; }
 
     private void Awake()
     {
-      if (instance == null) instance = this;
+      if (Instance == null) Instance = this;
       else Destroy(this);
     }
 
